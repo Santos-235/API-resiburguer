@@ -1,0 +1,35 @@
+const db = require('./bd')
+
+
+const USUARIO_SCHEMA = `CREATE TABLE IF NOT EXISTS "USUARIO" (
+    "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "NOME_COMPLETO" varchar(64),
+    "ENDERECO" REAL,
+    "CELULAR" INTEGER,
+    "E_MAIL" INTEGER,
+    "OBSERVACAO" varchar(255)
+  );`
+
+
+  const ADD_USUARIO_DATA = 
+  `INSERT INTO USUARIO  (ID, NOME_COMPLETO, ENDERECO, CELULAR, E_MAIL, OBSERVACAO)
+  VALUES (1, 'VITOR SANTOS', 'RUA1', '33333333', 'VITOR@VITOR', 'NENHUMA')`
+  
+
+  function criaTabela() {
+    db.run(USUARIO_SCHEMA, (error)=> {
+       if (error) console.log(error.message);
+    });
+}
+
+
+function populaTabela() {
+    db.run(ADD_USUARIO_DATA, (error)=> {
+       if (error) console.log(error.message);
+    });
+}
+
+db.serialize(()=> {
+  criaTabela(),
+  populaTabela()
+});
