@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS "USUARIOS" (
     "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
     "NOME" varchar(70),    
     "EMAIL" varchar(70),
+    "ENDEREÇO" varchar(70),
     "TEL" varchar(70),
     "SENHA" varchar(15)
 )`
@@ -53,9 +54,9 @@ CREATE TABLE IF NOT EXISTS "USUARIOS" (
 const ADD_USUARIO_TESTE = `
 INSERT INTO USUARIOS (ID, NOME, EMAIL, TEL, SENHA)
 VALUES 
-    (1, 'Eugênio Oliveira', 'eugenio.oliveira@bol.com.br','7158 - 5555', '*******'),
-    (2, 'Olívia Ribeiro', 'olivia.ribeiro@gmail.com', '7185 - 6666', '********'),
-    (3, 'Mirtes Faria Lima', 'mirtes_fl@yahoo.com', '7184 - 4444', '********')    
+    (1, 'Eugênio Oliveira', 'eugenio.oliveira@bol.com.br','7158 - 5555', 'rua dos alfinetes, 1', '*******'),
+    (2, 'Olívia Ribeiro', 'olivia.ribeiro@gmail.com', 'rua dos alfinetes, 2', '7185 - 6666', '********'),
+    (3, 'Mirtes Faria Lima', 'mirtes_fl@yahoo.com', 'rua dos alfinetes, 3', '7184 - 4444', '********')    
 `
 
 function criaTabelaUsuarios() {

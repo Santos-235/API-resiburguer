@@ -7,7 +7,7 @@ app.use(express.json())
 
 
 app.listen(port, ()=>{
-    console.log("rodando hihi")
+    console.log("rodando")
 }) 
 
 
